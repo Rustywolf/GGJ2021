@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Models/SM_building.fbx" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Textures/Buildings/SM_building_T_building_grey_BaseColor.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Objects/BuildingCollision/BuildingCollision.tscn" type="PackedScene" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+
+[node name="BuildingGrey" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="Building2" parent="." index="0"]
+material_override = SubResource( 1 )
+
+[node name="StaticBody" parent="." index="1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
