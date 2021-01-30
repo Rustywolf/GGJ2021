@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Lollipop10.wav-25b81a87814242f6f46c10fde8170805.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Lollipop/Lollipop10.wav"
+dest_files=[ "res://.import/Lollipop10.wav-25b81a87814242f6f46c10fde8170805.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

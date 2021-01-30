@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FallInHole2.wav-cf135d123f33c071737a142cb6fc6cb7.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Impact/FallInHole/FallInHole2.wav"
+dest_files=[ "res://.import/FallInHole2.wav-cf135d123f33c071737a142cb6fc6cb7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

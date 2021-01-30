@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Distraction4.wav-004e69c63efd5f019447719b29402475.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Distraction/Distraction4.wav"
+dest_files=[ "res://.import/Distraction4.wav-004e69c63efd5f019447719b29402475.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

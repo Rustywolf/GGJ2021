@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/HitImpact1.wav-a5ac344176dbde350bbb8f67dd0b18e8.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Impact/Hits/HitImpact1.wav"
+dest_files=[ "res://.import/HitImpact1.wav-a5ac344176dbde350bbb8f67dd0b18e8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
