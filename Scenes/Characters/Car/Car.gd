@@ -1,7 +1,7 @@
 extends Spatial
 
 var speed := 10.0
-const IMPACT := 5.0
+const IMPACT := 10.0
 
 func _physics_process(delta):
 	translation += transform.basis.z * delta * speed
