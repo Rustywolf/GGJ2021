@@ -12,7 +12,7 @@ const PATH_CALC_TIME := 0.25
 onready var nav: Navigation = $"../Navigation"
 onready var player: Spatial = $"../Player"
 
-export var first_name := ""
+export var first_name = ""
 export var speed := 2.0
 export var found_radius := 10.0
 export var lollipop_radius := 5.0
@@ -36,8 +36,8 @@ var path_force_update := false
 func _ready():
 	player_tracker = player.get_node("Tracking/" + first_name)
 	target = player_tracker
-	($Lollipop/CollisionShape.shape as SphereShape).radius = lollipop_radius
-	($Attention/CollisionShape.shape as SphereShape).radius = attentive_radius
+	#($Lollipop/CollisionShape.shape as SphereShape).radius = lollipop_radius
+	#($Attention/CollisionShape.shape as SphereShape).radius = attentive_radius
 	
 
 func _calculate_path():
@@ -59,7 +59,7 @@ func _process(delta):
 	$Body.rotation.z = 0
 	
 	if state == KidState.LOST:
-		if player.global_transform.origin.distance_squared_to(global_transform.origin) < FOUND_RADIUS * found_modifier:
+		if player.global_transform.origin.distance_squared_to(global_transform.origin) < found_radius:
 			state = KidState.FOLLOWING
 			target = player_tracker
 	else:
@@ -93,7 +93,7 @@ func _physics_process(delta):
 
 func _set_velocity(state, target):
 	var closest = nav.get_closest_point(global_transform.origin)
-	state.linear_velocity = (target - closest).normalized() * SPEED * speed_modifier
+	state.linear_velocity = (target - closest).normalized() * speed
 	
 
 func _integrate_forces(state):
@@ -117,7 +117,7 @@ func _integrate_forces(state):
 		if (global_transform.origin.distance_squared_to(target.global_transform.origin)) < radius*radius:
 			state.linear_velocity = Vector3.ZERO
 	else:
-		if (global_transform.origin.distance_squared_to(player.global_transform.origin)) < 1:
+		if (global_transform.origin.distance_squared_to(player.global_transform.origin)) < 1.5*1.5:
 			state.linear_velocity = Vector3.ZERO
 			
 
@@ -137,7 +137,9 @@ func _on_Kid_body_entered(body):
 		
 
 func _on_Distraction_entered(body):
+	print(body.name)
 	if state == KidState.FOLLOWING:
+		print("Following")
 		state = KidState.DISTRACTED
 		target = body
 		_calculate_path()
@@ -145,7 +147,8 @@ func _on_Distraction_entered(body):
 
 func _on_Lollipop_area_entered(area):
 	if area.is_in_group("Lollipop"):
+		print("Lollipops")
 		state = KidState.ATTENTIVE
-		attentive_timer = ATTENTIVE_TIME * attentive_time_modifier
+		attentive_timer = attentive_time
 		target = player_tracker
 		

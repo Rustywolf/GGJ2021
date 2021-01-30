@@ -28,26 +28,6 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 shape = SubResource( 2 )
 
-[node name="Body" type="Spatial" parent="."]
-
-[node name="CSGBox" type="CSGBox" parent="Body"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0 )
-width = 0.25
-height = 0.25
-depth = 0.25
-
-[node name="CSGBox2" type="CSGBox" parent="Body"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-width = 0.5
-height = 0.5
-depth = 0.25
-
-[node name="CSGBox3" type="CSGBox" parent="Body"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0 )
-width = 0.25
-height = 0.25
-depth = 0.25
-
 [node name="Attention" type="Area" parent="." groups=[
 "Attention",
 ]]
