@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sound/Music.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scenes/Objects/Lollipop/Lollipop.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -12,6 +13,7 @@ extents = Vector3( 0.2, 0.2, 0.2 )
 [sub_resource type="Animation" id=3]
 resource_name = "Lollipop"
 length = 3.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera/Lollipop:visible")
 tracks/0/interp = 1
@@ -60,6 +62,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Camera/Lollipop/Lollipop:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4, 1.8, 2.2, 2.6, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( -30, 90, 0 ), Vector3( 30, 90, 0 ), Vector3( -30, 90, 0 ), Vector3( 30, 90, 0 ), Vector3( -30, 90, 0 ), Vector3( 30, 90, 0 ), Vector3( -30, 90, 0 ), Vector3( 0, 90, 0 ) ]
+}
 
 [node name="Player" type="KinematicBody"]
 collision_layer = 2147483651
@@ -85,10 +99,8 @@ monitorable = false
 shape = SubResource( 2 )
 disabled = true
 
-[node name="CSGBox" type="CSGBox" parent="Camera/Lollipop"]
-width = 0.4
-height = 0.4
-depth = 0.4
+[node name="Lollipop" parent="Camera/Lollipop" instance=ExtResource( 3 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.244939, -0.276546, 0 )
 
 [node name="Tracking" type="Spatial" parent="."]
 
