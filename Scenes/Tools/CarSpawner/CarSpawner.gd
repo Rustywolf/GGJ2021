@@ -3,6 +3,7 @@ extends Spatial
 
 export var delay := 0.0
 export var cooldown := 1.0
+export var speed := 10.0
 
 onready var Car := preload("res://Scenes/Characters/Car/Car.tscn")
 
@@ -18,4 +19,5 @@ func _process(delta):
 		time += cooldown
 		
 		var car = Car.instance()
+		car.speed = speed
 		add_child(car)

@@ -4,18 +4,30 @@ const CAM_SPEED := 0.25
 const MOVE_SPEED := 2.5
 const PUSH_STRENGTH := 0.5
 const MAX_Y_VELOCITY := -20.0
+const DEFAULT_LOLLIPOP_ACTIVE := 3.0
 
 onready var camera := $Camera
+
+export var lollipop_active := 3.0
+export var lollipop_cooldown := 15.0
 
 var move_forward := false
 var move_backward := false
 var move_left := false
 var move_right := false
 var velocity_y = 0.0
+var lollipop_time := 0.0
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$AnimationPlayer.playback_speed = DEFAULT_LOLLIPOP_ACTIVE / lollipop_active
+	
+
+func _process(delta):
+	lollipop_time -= delta
+	if lollipop_time < 0:
+		lollipop_time = 0
 	
 
 func _physics_process(delta):
@@ -80,7 +92,9 @@ func _unhandled_input(event):
 		move_right = false
 	
 	if event.is_action_pressed("use_lollipop"):
-		$AnimationPlayer.play("Lollipop")
+		if lollipop_time <= 0:
+			$AnimationPlayer.play("Lollipop")
+			lollipop_time = lollipop_cooldown
 		
 
 func _on_Ground_entered(body):

@@ -7,15 +7,17 @@ enum KidState {
 	DISTRACTED
 }
 
-const SPEED := 2.0
-const FOUND_RADIUS := 10.0
 const PATH_CALC_TIME := 0.25
-const ATTENTIVE_TIME := 20.0
 
 onready var nav: Navigation = $"../Navigation"
 onready var player: Spatial = $"../Player"
 
 export var first_name := ""
+export var speed := 2.0
+export var found_radius := 10.0
+export var lollipop_radius := 5.0
+export var attentive_radius := 10.0
+export var attentive_time := 20.0
 
 var player_tracker = null
 var target = null
@@ -34,6 +36,8 @@ var path_force_update := false
 func _ready():
 	player_tracker = player.get_node("Tracking/" + first_name)
 	target = player_tracker
+	($Lollipop/CollisionShape.shape as SphereShape).radius = lollipop_radius
+	($Attention/CollisionShape.shape as SphereShape).radius = attentive_radius
 	
 
 func _calculate_path():
@@ -55,7 +59,7 @@ func _process(delta):
 	$Body.rotation.z = 0
 	
 	if state == KidState.LOST:
-		if player.global_transform.origin.distance_squared_to(global_transform.origin) < FOUND_RADIUS:
+		if player.global_transform.origin.distance_squared_to(global_transform.origin) < FOUND_RADIUS * found_modifier:
 			state = KidState.FOLLOWING
 			target = player_tracker
 	else:
@@ -89,7 +93,7 @@ func _physics_process(delta):
 
 func _set_velocity(state, target):
 	var closest = nav.get_closest_point(global_transform.origin)
-	state.linear_velocity = (target - closest).normalized() * SPEED
+	state.linear_velocity = (target - closest).normalized() * SPEED * speed_modifier
 	
 
 func _integrate_forces(state):
@@ -142,6 +146,6 @@ func _on_Distraction_entered(body):
 func _on_Lollipop_area_entered(area):
 	if area.is_in_group("Lollipop"):
 		state = KidState.ATTENTIVE
-		attentive_timer = ATTENTIVE_TIME
-		target = player
+		attentive_timer = ATTENTIVE_TIME * attentive_time_modifier
+		target = player_tracker
 		
