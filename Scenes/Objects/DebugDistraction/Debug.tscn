@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Tools/Distraction/Distraction.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+height = 5.0
+
+[node name="DebugDistraction" type="Spatial"]
+
+[node name="CSGBox" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+height = 5.0
+
+[node name="Distraction" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0160904, 0.0490901, -0.0262022 )
+radius = 1.5
+
+[node name="CollisionShape" type="CollisionShape" parent="Distraction"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+shape = SubResource( 1 )
