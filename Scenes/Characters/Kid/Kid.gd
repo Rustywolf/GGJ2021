@@ -10,6 +10,7 @@ enum KidState {
 const SPEED := 2.0
 const FOUND_RADIUS := 10.0
 const PATH_CALC_TIME := 0.25
+const ATTENTIVE_TIME := 20.0
 
 onready var nav: Navigation = $"../Navigation"
 onready var player: Spatial = $"../Player"
@@ -19,6 +20,7 @@ export var first_name := ""
 var player_tracker = null
 var target = null
 var state = KidState.FOLLOWING
+var attentive_timer := 0.0
 
 var collisions = []
 var flying := false
@@ -40,6 +42,13 @@ func _calculate_path():
 	path_force_update = true
 	
 
+func _check_for_distractions():
+	for area in $Attention.get_overlapping_areas():
+		if area.is_in_group("Distraction"):
+			_on_Distraction_entered(area)
+			return
+			
+
 func _process(delta):
 	$Body.look_at(target.global_transform.origin, Vector3.UP)
 	$Body.rotation.x = 0
@@ -54,6 +63,11 @@ func _process(delta):
 		if path_calc_remaining < 0:
 			path_calc_remaining += PATH_CALC_TIME
 			_calculate_path()
+			
+		if state == KidState.ATTENTIVE:
+			attentive_timer -= delta
+			if attentive_timer < 0:
+				state = KidState.FOLLOWING
 			
 
 func add_collision(impact):
@@ -101,6 +115,7 @@ func _integrate_forces(state):
 	else:
 		if (global_transform.origin.distance_squared_to(player.global_transform.origin)) < 1:
 			state.linear_velocity = Vector3.ZERO
+			
 
 func _on_Ground_entered(body):
 	if body.get_parent().is_in_group("Pavement"):
@@ -118,7 +133,15 @@ func _on_Kid_body_entered(body):
 		
 
 func _on_Distraction_entered(body):
-	state = KidState.DISTRACTED
-	target = body
-	_calculate_path()
+	if state == KidState.FOLLOWING:
+		state = KidState.DISTRACTED
+		target = body
+		_calculate_path()
 	
+
+func _on_Lollipop_area_entered(area):
+	if area.is_in_group("Lollipop"):
+		state = KidState.ATTENTIVE
+		attentive_timer = ATTENTIVE_TIME
+		target = player
+		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Characters/Kid/Kid.gd" type="Script" id=1]
 
@@ -9,7 +9,10 @@ friction = 0.0
 extents = Vector3( 0.25, 0.5, 0.125 )
 
 [sub_resource type="SphereShape" id=3]
-radius = 15.0
+radius = 10.0
+
+[sub_resource type="SphereShape" id=4]
+radius = 5.0
 
 [node name="Kid" type="RigidBody" groups=[
 "kid",
@@ -51,4 +54,12 @@ depth = 0.25
 
 [node name="CollisionShape" type="CollisionShape" parent="Attention"]
 shape = SubResource( 3 )
+
+[node name="Lollipop" type="Area" parent="." groups=[
+"Lollipop",
+]]
+
+[node name="CollisionShape" type="CollisionShape" parent="Lollipop"]
+shape = SubResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_Kid_body_entered"]
+[connection signal="area_entered" from="Lollipop" to="." method="_on_Lollipop_area_entered"]

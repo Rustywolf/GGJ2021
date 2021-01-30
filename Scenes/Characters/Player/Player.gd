@@ -1,6 +1,5 @@
 extends KinematicBody
 
-
 const CAM_SPEED := 0.25
 const MOVE_SPEED := 2.5
 const PUSH_STRENGTH := 0.5
@@ -79,6 +78,9 @@ func _unhandled_input(event):
 		move_right = true
 	elif event.is_action_released("move_right"):
 		move_right = false
+	
+	if event.is_action_pressed("use_lollipop"):
+		$AnimationPlayer.play("Lollipop")
 		
 
 func _on_Ground_entered(body):

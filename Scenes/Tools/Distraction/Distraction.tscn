@@ -2,6 +2,8 @@
 
 [ext_resource path="res://Scenes/Tools/Distraction/Distraction.gd" type="Script" id=1]
 
-[node name="Distraction" type="Area"]
+[node name="Distraction" type="Area" groups=[
+"Distraction",
+]]
 script = ExtResource( 1 )
 [connection signal="area_entered" from="." to="." method="_on_Spatial_area_entered"]
