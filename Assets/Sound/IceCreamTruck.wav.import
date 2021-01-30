@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/IceCreamTruck.wav-bee16380983e1707d6a8618fc0378def.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/IceCreamTruck.wav"
+dest_files=[ "res://.import/IceCreamTruck.wav-bee16380983e1707d6a8618fc0378def.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
