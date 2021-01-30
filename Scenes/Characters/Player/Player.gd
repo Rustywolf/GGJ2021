@@ -20,6 +20,7 @@ var lollipop_time := 0.0
 
 
 func _ready():
+	randomize()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$AnimationPlayer.playback_speed = DEFAULT_LOLLIPOP_ACTIVE / lollipop_active
 	

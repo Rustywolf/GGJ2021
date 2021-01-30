@@ -31,6 +31,7 @@ var path = []
 var path_idx := 0
 var path_calc_remaining := 0.0
 var path_force_update := false
+var reset_velocity := false
 
 
 func _ready():
@@ -38,6 +39,10 @@ func _ready():
 	target = player_tracker
 	#($Lollipop/CollisionShape.shape as SphereShape).radius = lollipop_radius
 	#($Attention/CollisionShape.shape as SphereShape).radius = attentive_radius
+	
+
+func _select_random_audio(node):
+	node.get_child(randi() % node.get_child_count()).playing = true
 	
 
 func _calculate_path():
@@ -80,7 +85,7 @@ func add_collision(impact):
 
 func _physics_process(delta):
 	if collisions.size() > 0:
-		
+		_select_random_audio($HitImpact)
 		for collision in collisions:
 			apply_torque_impulse(transform.basis.x)
 			for impact in collision:
@@ -97,6 +102,10 @@ func _set_velocity(state, target):
 	
 
 func _integrate_forces(state):
+	if reset_velocity:
+		state.linear_velocity = Vector3.ZERO
+		reset_velocity = false
+		
 	if not path or path.size() <= path_idx or flying:
 		return
 		
@@ -132,14 +141,14 @@ func _on_Ground_exited(body):
 		
 
 func _on_Kid_body_entered(body):
-	if body.is_in_group("Ground"):
+	if body.is_in_group("Ground") and flying:
 		flying = false
+		$FallImpact.playing = true
+		reset_velocity = true
 		
 
 func _on_Distraction_entered(body):
-	print(body.name)
 	if state == KidState.FOLLOWING:
-		print("Following")
 		state = KidState.DISTRACTED
 		target = body
 		_calculate_path()
@@ -147,8 +156,11 @@ func _on_Distraction_entered(body):
 
 func _on_Lollipop_area_entered(area):
 	if area.is_in_group("Lollipop"):
-		print("Lollipops")
 		state = KidState.ATTENTIVE
 		attentive_timer = attentive_time
 		target = player_tracker
-		
+		_select_random_audio($LollipopAudio)
+	
+
+func _on_Hole_entered(hole):
+	_select_random_audio($HoleAudio)
