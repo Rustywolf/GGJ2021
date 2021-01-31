@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Tools/CarSpawner/CarSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Roads/Roads.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Characters/Kid/Kid.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Characters/Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Objects/Ground/Ground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Objects/Rocks/Rocks.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Objects/BuildingRed/BuildingRed.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Objects/Hole/Hole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Models/blinn1.material" type="Material" id=9]
@@ -16,6 +17,7 @@
 [ext_resource path="res://Scenes/Objects/BuildingGreen/BuildingGreen.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Objects/BuildingGrey/BuildingGrey.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Objects/TreeTwo/TreeTwo.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Objects/IcecreamTruck/IcecreamTruck.tscn" type="PackedScene" id=18]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 11 )
@@ -51,6 +53,9 @@ agent/height = 1.0
 agent/radius = 1.0
 agent/max_climb = 1.0
 agent/max_slope = 90.0
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.266667, 0.498039, 0.0901961, 1 )
 
 [node name="World" type="Spatial"]
 
@@ -131,7 +136,46 @@ navmesh = SubResource( 6 )
 [node name="Roads" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 2 )]
 
 [node name="Hole" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.287 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1171, 0, 12.4793 )
+
+[node name="Hole13" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3071, 0, -37.6722 )
+
+[node name="Hole14" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6483, 0, -37.6722 )
+
+[node name="Hole6" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.6433, 0, -12.6135 )
+
+[node name="Hole7" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2242, 0, -21.4479 )
+
+[node name="Hole8" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6476, 0, -22.7843 )
+
+[node name="Hole9" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4934, 0, -29.3579 )
+
+[node name="Hole10" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4934, 0, 25.8247 )
+
+[node name="Hole11" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1395, 0, 37.4616 )
+
+[node name="Hole12" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2699, 0, 37.4616 )
+
+[node name="Hole2" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.26977, 0.418324, 4.19897 )
+
+[node name="Hole3" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72571, 0.418324, 6.97157 )
+
+[node name="Hole4" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.18954, 0.418324, -2.14795 )
+
+[node name="Hole5" parent="Navigation/NavigationMeshInstance/Roads" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.05856, 0.458745, -7.17025 )
 
 [node name="Buildings" type="Spatial" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00634289, -4.76837e-07, 0.0219002 )
@@ -162,9 +206,6 @@ transform = Transform( -0.0013003, 0, 0.499998, 0, 0.5, 0, -0.499998, 0, -0.0013
 
 [node name="BuildingGrey7" parent="Navigation/NavigationMeshInstance/Buildings" instance=ExtResource( 16 )]
 transform = Transform( 0.00590753, 0, 0.499965, 0, 0.5, 0, -0.499965, 0, 0.00590753, -4.97591, 0, -20.1936 )
-
-[node name="BuildingGrey11" parent="Navigation/NavigationMeshInstance/Buildings" instance=ExtResource( 16 )]
-transform = Transform( -0.499884, 0, 0.01075, 0, 0.5, 0, -0.01075, 0, -0.499884, -45.0354, 0, -45.1628 )
 
 [node name="BuildingGrey8" parent="Navigation/NavigationMeshInstance/Buildings" instance=ExtResource( 16 )]
 transform = Transform( -0.499965, 0, 0.00590777, 0, 0.5, 0, -0.00590777, 0, -0.499965, 5.04826, 0, -29.9809 )
@@ -208,19 +249,75 @@ transform = Transform( -0.5, 0, -1.62921e-07, 0, 0.5, 0, 1.62921e-07, 0, -0.5, -
 [node name="Decoration" type="Spatial" parent="Navigation/NavigationMeshInstance"]
 
 [node name="Tree 1" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 14 )]
-transform = Transform( -4.88762e-07, 0, -3, 0, 3, 0, 3, 0, -4.88762e-07, -18.965, 0.24233, -23.1171 )
+transform = Transform( -4.88762e-07, 0, -3, 0, 3, 0, 3, 0, -4.88762e-07, -20.7295, 0.24233, -29.0209 )
 
 [node name="Tree 2" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 14 )]
-transform = Transform( -4.88762e-07, 0, -3, 0, 3, 0, 3, 0, -4.88762e-07, 27.2581, 0.24233, 18.8663 )
+transform = Transform( 2.02387, 0, -2.21448, 0, 3, 0, 2.21448, 0, 2.02387, 27.2581, 0.124678, 21.3458 )
 
 [node name="Tree 4" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 14 )]
-transform = Transform( -4.88762e-07, 0, -3, 0, 3, 0, 3, 0, -4.88762e-07, 18.2264, 0.24233, -18.5393 )
+transform = Transform( -2.9966, 0, -0.142836, 0, 3, 0, 0.142836, 0, -2.9966, 20.906, 0.211089, -29.3693 )
 
 [node name="Tree 5" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 14 )]
-transform = Transform( -4.88762e-07, 0, -3, 0, 3, 0, 3, 0, -4.88762e-07, -21.0328, 0.24233, 19.5054 )
+transform = Transform( 2.93451, 0, -0.623428, 0, 3, 0, 0.623428, 0, 2.93451, -28.4534, -0.36003, 20.3515 )
 
 [node name="Tree 3" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 17 )]
-transform = Transform( -3.41573, 0, -3.65141, 0, 5, 0, 3.65141, 0, -3.41573, -0.0913601, 0.0590438, 0.203545 )
+transform = Transform( -3.41573, 0, -3.65141, 0, 5, 0, 3.65141, 0, -3.41573, -0.0913601, 0.0854532, 0.203545 )
+
+[node name="Tree 6" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 17 )]
+transform = Transform( 2.61071, 0, 1.47791, 0, 3, 0, -1.47791, 0, 2.61071, 20.6567, 0.0854532, 30.9652 )
+
+[node name="Tree 9" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 17 )]
+transform = Transform( 1.18495, 0, 2.75606, 0, 3, 0, -2.75606, 0, 1.18495, -20.8939, 0.0854532, 29.6302 )
+
+[node name="Tree 7" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 17 )]
+transform = Transform( -1.41982, 0, -2.64275, 0, 3, 0, 2.64275, 0, -1.41982, 28.1099, 0.0854532, -22.0974 )
+
+[node name="Tree 8" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 17 )]
+transform = Transform( 1.79749, 0, -2.40188, 0, 3, 0, 2.40188, 0, 1.79749, -29.1369, 0.0854532, -21.2754 )
+
+[node name="Rocks and Bush" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 6 )]
+transform = Transform( 1.16566, 0, -1.62518, 0, 2, 0, 1.62518, 0, 1.16566, -24.7737, 0.343413, 20.306 )
+
+[node name="Rocks and Bush2" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 6 )]
+transform = Transform( 1.1422, 0, 1.64176, 0, 2, 0, -1.64176, 0, 1.1422, -29.3459, 0.355754, 33.4593 )
+
+[node name="Rocks and Bush3" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 6 )]
+transform = Transform( 1.4713, 0, 1.35473, 0, 2, 0, -1.35473, 0, 1.4713, 19.6303, 0.343413, 26.006 )
+
+[node name="Rocks and Bush4" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 6 )]
+transform = Transform( -1.76853, 0, 0.933977, 0, 2, 0, -0.933977, 0, -1.76853, 33.2421, 0.355754, 28.944 )
+
+[node name="Rocks and Bush5" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 6 )]
+transform = Transform( -1.23176, 0, 1.57568, 0, 2, 0, -1.57568, 0, -1.23176, 25.4934, 0.343413, -19.9678 )
+
+[node name="Rocks and Bush6" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 6 )]
+transform = Transform( -1.07345, 0, -1.68751, 0, 2, 0, 1.68751, 0, -1.07345, 29.5187, 0.355754, -33.2987 )
+
+[node name="Rocks and Bush7" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 6 )]
+transform = Transform( 1.46226, 0, 1.36448, 0, 2, 0, -1.36448, 0, 1.46226, -30.5685, 0.343413, -24.8142 )
+
+[node name="Rocks and Bush8" parent="Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 6 )]
+transform = Transform( -1.7747, 0, 0.922196, 0, 2, 0, -0.922196, 0, -1.7747, -16.9374, 0.355754, -21.9668 )
+
+[node name="IceCream" type="Spatial" parent="Navigation/NavigationMeshInstance"]
+
+[node name="IcecreamTruck" parent="Navigation/NavigationMeshInstance/IceCream" instance=ExtResource( 18 )]
+transform = Transform( 0.729942, 0, -0.327391, 0, 0.8, 0, 0.327391, 0, 0.729942, 5.52993, 0.39346, 28.9825 )
+
+[node name="IcecreamTruck2" parent="Navigation/NavigationMeshInstance/IceCream" instance=ExtResource( 18 )]
+transform = Transform( -0.47782, 0, 0.641629, 0, 0.8, 0, -0.641629, 0, -0.47782, 44.1099, 0.39346, 30.6131 )
+
+[node name="IcecreamTruck4" parent="Navigation/NavigationMeshInstance/IceCream" instance=ExtResource( 18 )]
+transform = Transform( 0.77487, 0, 0.198938, 0, 0.8, 0, -0.198938, 0, 0.77487, 29.1866, 0.39346, -5.46976 )
+
+[node name="IcecreamTruck5" parent="Navigation/NavigationMeshInstance/IceCream" instance=ExtResource( 18 )]
+transform = Transform( 0.685475, 0, 0.412461, 0, 0.8, 0, -0.412461, 0, 0.685475, -21.009, 0.39346, -5.46976 )
+
+[node name="IcecreamTruck6" parent="Navigation/NavigationMeshInstance/IceCream" instance=ExtResource( 18 )]
+transform = Transform( 0.602428, 0, -0.526384, 0, 0.8, 0, 0.526384, 0, 0.602428, -44.1304, 0.39346, -30.5701 )
+
+[node name="IcecreamTruck3" parent="Navigation/NavigationMeshInstance/IceCream" instance=ExtResource( 18 )]
+transform = Transform( -0.739243, 0, 0.305811, 0, 0.8, 0, -0.305811, 0, -0.739243, 3.82039, 0.39346, -19.517 )
 
 [node name="Pavement" type="Spatial" parent="." groups=[
 "Pavement",
@@ -293,6 +390,7 @@ use_collision = false
 
 [node name="Ground17" parent="Pavement" instance=ExtResource( 5 )]
 transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, -25, 0, -25 )
+material_override = SubResource( 7 )
 use_collision = false
 
 [node name="Ground18" parent="Pavement" instance=ExtResource( 5 )]
@@ -301,6 +399,7 @@ use_collision = false
 
 [node name="Ground19" parent="Pavement" instance=ExtResource( 5 )]
 transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 25, 0, -25 )
+material_override = SubResource( 7 )
 use_collision = false
 
 [node name="Ground20" parent="Pavement" instance=ExtResource( 5 )]
@@ -317,6 +416,7 @@ use_collision = false
 
 [node name="Ground23" parent="Pavement" instance=ExtResource( 5 )]
 transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, -25, 0, 25 )
+material_override = SubResource( 7 )
 use_collision = false
 
 [node name="Ground24" parent="Pavement" instance=ExtResource( 5 )]
@@ -325,6 +425,12 @@ use_collision = false
 
 [node name="Ground25" parent="Pavement" instance=ExtResource( 5 )]
 transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 25, 0, 25 )
+material_override = SubResource( 7 )
+use_collision = false
+
+[node name="Ground26" parent="Pavement" instance=ExtResource( 5 )]
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 8, 0.0305099, 0.0638971, 0.0705681 )
+material_override = SubResource( 7 )
 use_collision = false
 
 [node name="CarLogic" type="Spatial" parent="."]
