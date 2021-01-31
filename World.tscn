@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Scenes/Tools/CarSpawner/CarSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Roads/Roads.tscn" type="PackedScene" id=2]
@@ -31,6 +31,8 @@
 [ext_resource path="res://Assets/UI/I_Oliver_HOL.png" type="Texture" id=29]
 [ext_resource path="res://Assets/UI/I_Lollipop_Y.png" type="Texture" id=30]
 [ext_resource path="res://Assets/UI/I_Lollipop_N.png" type="Texture" id=31]
+[ext_resource path="res://Scenes/Objects/Rocks/Rocks.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Scenes/Objects/TreeTwo/TreeTwo.tscn" type="PackedScene" id=33]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -467,7 +469,31 @@ transform = Transform( -0.499997, 0, 0.00170187, 0, 0.5, 0, -0.00170187, 0, -0.4
 [node name="Decoration" type="Spatial" parent="CanvasLayer/Navigation/NavigationMeshInstance"]
 
 [node name="Tree 1" parent="CanvasLayer/Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 14 )]
-transform = Transform( -3.25841e-07, 0, -2, 0, 2, 0, 2, 0, -3.25841e-07, -0.00634289, 0.24233, -7.07773 )
+transform = Transform( -4.88762e-07, 0, -3, 0, 3, 0, 3, 0, -4.88762e-07, 20.8065, 0.113065, -27.2143 )
+
+[node name="Tree 2" parent="CanvasLayer/Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 14 )]
+transform = Transform( 2.48957, 0, 1.67393, 0, 3, 0, -1.67393, 0, 2.48957, 29.9669, 0.113065, 28.663 )
+
+[node name="Tree 3" parent="CanvasLayer/Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 14 )]
+transform = Transform( 1.79334, 0, -2.40498, 0, 3, 0, 2.40498, 0, 1.79334, -27.1861, 0.113065, 20.3279 )
+
+[node name="Tree 4" parent="CanvasLayer/Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 14 )]
+transform = Transform( 1.79334, 0, -2.40498, 0, 3, 0, 2.40498, 0, 1.79334, -20.481, 0.113065, -20.4359 )
+
+[node name="Tree 5" parent="CanvasLayer/Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 33 )]
+transform = Transform( -3.90728, 0, 3.11981, 0, 5, 0, -3.11981, 0, -3.90728, -4.65661e-10, -0.228069, -1.86265e-09 )
+
+[node name="Tree 6" parent="CanvasLayer/Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 33 )]
+transform = Transform( -2.77876, 0, -1.13071, 0, 3, 0, 1.13071, 0, -2.77876, 21.0679, -0.228069, 19.2895 )
+
+[node name="Tree 7" parent="CanvasLayer/Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 33 )]
+transform = Transform( 1.93677, 0, -2.29105, 0, 3, 0, 2.29105, 0, 1.93677, -18.9659, -0.228069, 27.5917 )
+
+[node name="Tree 8" parent="CanvasLayer/Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 33 )]
+transform = Transform( 1.7851, 0, 2.4111, 0, 3, 0, -2.4111, 0, 1.7851, -29.7712, -0.228069, -27.6796 )
+
+[node name="Tree 9" parent="CanvasLayer/Navigation/NavigationMeshInstance/Decoration" instance=ExtResource( 33 )]
+transform = Transform( -1.38399, 0, 2.66168, 0, 3, 0, -2.66168, 0, -1.38399, 31.6949, -0.228069, -24.7076 )
 
 [node name="Pavement" type="Spatial" parent="CanvasLayer" groups=[
 "Pavement",
@@ -588,6 +614,36 @@ cooldown = 7.0
 speed = 5.0
 
 [node name="Cars" type="Spatial" parent="CanvasLayer"]
+
+[node name="Rocks and Bush" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.933916, 0, 1.76856, 0, 2, 0, -1.76856, 0, 0.933916, 26.1645, 0, -26.1037 )
+
+[node name="Rocks and Bush2" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.912363, 0, -1.77977, 0, 2, 0, 1.77977, 0, 0.912363, 21.1212, 0, -22.8986 )
+
+[node name="Rocks and Bush3" parent="." instance=ExtResource( 32 )]
+transform = Transform( 1.89563, 0, 0.637654, 0, 2, 0, -0.637654, 0, 1.89563, 26.5744, 0, 26.9973 )
+
+[node name="Rocks and Bush4" parent="." instance=ExtResource( 32 )]
+transform = Transform( -0.565688, 0, -1.91833, 0, 2, 0, 1.91833, 0, -0.565688, 20.7113, 0, 25.8435 )
+
+[node name="Rocks and Bush5" parent="." instance=ExtResource( 32 )]
+transform = Transform( 1.89563, 0, 0.637654, 0, 2, 0, -0.637654, 0, 1.89563, -25.7041, 0, 26.9973 )
+
+[node name="Rocks and Bush6" parent="." instance=ExtResource( 32 )]
+transform = Transform( -0.565688, 0, -1.91833, 0, 2, 0, 1.91833, 0, -0.565688, -31.5673, 0, 25.8435 )
+
+[node name="Rocks and Bush7" parent="." instance=ExtResource( 32 )]
+transform = Transform( -1.64232, 0, -1.1414, 0, 2, 0, 1.1414, 0, -1.64232, -27.2284, 0, -25.7242 )
+
+[node name="Rocks and Bush9" parent="." instance=ExtResource( 32 )]
+transform = Transform( -1.23174, 0, -0.856048, 0, 1.5, 0, 0.856048, 0, -1.23174, -1.00723, 0, -1.21925 )
+
+[node name="Rocks and Bush10" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.317346, 0, 1.46605, 0, 1.5, 0, -1.46605, 0, 0.317346, 3.04955, 0, 0.753166 )
+
+[node name="Rocks and Bush8" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.0077852, 0, 1.99998, 0, 2, 0, -1.99998, 0, 0.0077852, -21.2762, 0, -26.2526 )
 [connection signal="gui_input" from="Overlay/Exit" to="." method="_on_Exit_gui_input"]
 [connection signal="mouse_entered" from="Overlay/Exit" to="." method="_on_Exit_mouse_entered"]
 [connection signal="mouse_exited" from="Overlay/Exit" to="." method="_on_Exit_mouse_exited"]
