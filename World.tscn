@@ -437,7 +437,48 @@ use_collision = false
 
 [node name="CarSpawner4" parent="CarLogic" instance=ExtResource( 1 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -37.4863, 0, 52.884 )
+cooldown = 7.0
+speed = 5.0
+
+[node name="CarSpawner5" parent="CarLogic" instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -12.3389, 0, 52.884 )
+delay = 3.0
+cooldown = 7.0
+speed = 5.0
+
+[node name="CarSpawner6" parent="CarLogic" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2985, 0, -57.0509 )
+delay = 7.0
+cooldown = 7.0
+speed = 5.0
+
+[node name="CarSpawner7" parent="CarLogic" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9984, 0, -57.0509 )
+delay = 2.0
+cooldown = 7.0
+speed = 5.0
+
+[node name="CarSpawner8" parent="CarLogic" instance=ExtResource( 1 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -55.5474, 0, 12.6641 )
+delay = 1.0
+cooldown = 7.0
+speed = 5.0
+
+[node name="CarSpawner9" parent="CarLogic" instance=ExtResource( 1 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -53.8504, 0, -12.4404 )
+delay = 1.0
+cooldown = 7.0
+speed = 5.0
+
+[node name="CarSpawner10" parent="CarLogic" instance=ExtResource( 1 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 52.8173, 0, -37.1842 )
 delay = 6.0
+cooldown = 7.0
+speed = 5.0
+
+[node name="CarSpawner11" parent="CarLogic" instance=ExtResource( 1 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 54.5144, 0, 37.1052 )
+delay = 1.0
 cooldown = 7.0
 speed = 5.0
 
