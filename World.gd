@@ -44,7 +44,6 @@ func set_hole(child):
 	get_node("UI/%s/I_Eloise_REG" % child).visible = false
 	
 
-
 func set_normal(child):
 	get_node("UI/%s/I_Eloise_DIS" % child).visible = false
 	get_node("UI/%s/I_Eloise_HOL" % child).visible = false

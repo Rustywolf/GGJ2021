@@ -6,37 +6,37 @@
 albedo_color = Color( 0.909804, 0.788235, 0.12549, 1 )
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.662745, 0.415686, 0.12549, 1 )
+albedo_color = Color( 0.886275, 0.168627, 0.168627, 1 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.878431, 0.843137, 0.729412, 1 )
 
 [sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.968627, 0, 1, 1 )
-
-[sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.270588, 0.929412, 0.803922, 1 )
 
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.968627, 0, 1, 1 )
+
 [sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.886275, 0.168627, 0.168627, 1 )
+albedo_color = Color( 0.662745, 0.415686, 0.12549, 1 )
 
 [node name="School" instance=ExtResource( 1 )]
 
 [node name="SCHOOL2" parent="." index="0"]
 material/0 = SubResource( 1 )
 
-[node name="Window Frames2" parent="SCHOOL2" index="0"]
+[node name="book cae2" parent="SCHOOL2" index="0"]
 material/0 = SubResource( 2 )
 
 [node name="Object005" parent="SCHOOL2" index="1"]
 material/0 = SubResource( 3 )
 
-[node name="Box016" parent="SCHOOL2" index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.253896, 0, 0, 3.49356 )
+[node name="Windows2" parent="SCHOOL2" index="2"]
 material/0 = SubResource( 4 )
 
-[node name="Windows2" parent="SCHOOL2" index="3"]
+[node name="Box016" parent="SCHOOL2" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.253896, 0, 0, 3.49356 )
 material/0 = SubResource( 5 )
 
-[node name="book cae2" parent="SCHOOL2" index="4"]
+[node name="Window Frames2" parent="SCHOOL2" index="4"]
 material/0 = SubResource( 6 )

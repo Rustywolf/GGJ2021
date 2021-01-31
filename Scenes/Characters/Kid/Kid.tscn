@@ -134,5 +134,4 @@ unit_db = 20.0
 stream = ExtResource( 22 )
 unit_db = 60.0
 [connection signal="body_entered" from="." to="." method="_on_Kid_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Kid_body_exited"]
 [connection signal="area_entered" from="Lollipop" to="." method="_on_Lollipop_area_entered"]

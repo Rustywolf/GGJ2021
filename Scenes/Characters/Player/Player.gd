@@ -19,6 +19,8 @@ var move_right := false
 var velocity_y = 0.0
 var lollipop_time := 0.0
 
+var hover_retry := false
+var hover_exit := false
 
 func _ready():
 	randomize()
@@ -112,3 +114,29 @@ func _on_Ground_exited(body):
 	if body.get_parent().is_in_group("Pavement"):
 		camera.transform.origin.y = 1.6
 	
+
+func victory():
+	$Control.visible = true
+	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func _on_Retry_mouse_entered():
+	$Control/Retry.set("custom_colors/default_color", "#AAAAAA")
+	hover_retry = true
+
+
+func _on_EXIT_mouse_entered():
+	$Control/EXIT.set("custom_colors/default_color", "#AAAAAA")
+	hover_exit = true
+
+
+func _on_EXIT_mouse_exited():
+	$Control/EXIT.set("custom_colors/default_color", "#FFFFFF")
+	hover_exit = false
+
+
+func _on_Retry_mouse_exited():
+	$Control/Retry.set("custom_colors/default_color", "#FFFFFF")
+	$Control/Retry.set("custom_colors/default_color", "#FFFFFF")
+	hover_retry = false
