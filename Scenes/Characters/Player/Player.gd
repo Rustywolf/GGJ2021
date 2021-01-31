@@ -6,6 +6,7 @@ const PUSH_STRENGTH := 0.5
 const MAX_Y_VELOCITY := -20.0
 const DEFAULT_LOLLIPOP_ACTIVE := 3.0
 
+onready var world := $"../../"
 onready var camera := $Camera
 
 export var lollipop_active := 3.0
@@ -29,6 +30,9 @@ func _process(delta):
 	lollipop_time -= delta
 	if lollipop_time < 0:
 		lollipop_time = 0
+		world.set_lollipop_ready()
+	else:
+		world.set_lollipop_cooldown(lollipop_time)
 	
 
 func _physics_process(delta):
@@ -95,6 +99,8 @@ func _unhandled_input(event):
 			$AnimationPlayer.play("Lollipop")
 			lollipop_time = lollipop_cooldown
 			$LollipopAudio.get_child(randi() % $LollipopAudio.get_child_count()).playing = true
+			world.set_lollipop_used()
+			world.set_lollipop_cooldown(lollipop_time)
 		
 
 func _on_Ground_entered(body):

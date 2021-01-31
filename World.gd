@@ -35,18 +35,29 @@ func set_distracted(child):
 	get_node("UI/%s/I_Eloise_DIS" % child).visible = true
 	get_node("UI/%s/I_Eloise_HOL" % child).visible = false
 	get_node("UI/%s/I_Eloise_REG" % child).visible = false
-	pass
+	
 
 
 func set_hole(child):
 	get_node("UI/%s/I_Eloise_DIS" % child).visible = false
 	get_node("UI/%s/I_Eloise_HOL" % child).visible = true
 	get_node("UI/%s/I_Eloise_REG" % child).visible = false
-	pass
+	
 
 
 func set_normal(child):
 	get_node("UI/%s/I_Eloise_DIS" % child).visible = false
 	get_node("UI/%s/I_Eloise_HOL" % child).visible = false
 	get_node("UI/%s/I_Eloise_REG" % child).visible = true
-	pass
+	
+
+func set_lollipop_ready():
+	$"UI/Lollipop/I_Lollipop_Y".visible = true
+	
+
+func set_lollipop_used():
+	$"UI/Lollipop/I_Lollipop_Y".visible = false
+	
+
+func set_lollipop_cooldown(number):
+	$"UI/Lollipop/Cooldown".bbcode_text = "[center]%s" % int(ceil(number))
