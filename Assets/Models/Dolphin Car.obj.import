@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Dolphin Car.obj-7ce0e112bc06537dfc1fda184ed9019c.mesh"
+
+[deps]
+
+files=[ "res://.import/Dolphin Car.obj-7ce0e112bc06537dfc1fda184ed9019c.mesh" ]
+
+source_file="res://Assets/Models/Dolphin Car.obj"
+dest_files=[ "res://.import/Dolphin Car.obj-7ce0e112bc06537dfc1fda184ed9019c.mesh", "res://.import/Dolphin Car.obj-7ce0e112bc06537dfc1fda184ed9019c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
