@@ -9,6 +9,7 @@ enum KidState {
 
 const PATH_CALC_TIME := 0.25
 
+onready var world = $"../../"
 onready var nav: Navigation = $"../Navigation"
 onready var player: Spatial = $"../Player"
 
@@ -32,6 +33,8 @@ var path_idx := 0
 var path_calc_remaining := 0.0
 var path_force_update := false
 var reset_velocity := false
+var stuck := false
+var hit := false
 
 var set_time := 0.5
 
@@ -61,6 +64,20 @@ func _check_for_distractions():
 			
 
 func _process(delta):
+	if stuck:
+		return
+		
+	
+	if hit and transform.origin.y > 1:
+		flying = true
+		state = KidState.LOST
+		world.set_distracted(first_name)
+	
+	if flying and transform.origin.y < 1:
+		flying = false
+		$FallImpact.playing = true
+		reset_velocity = true
+		
 	set_time -= delta
 	
 	$Body.look_at(target.global_transform.origin, Vector3.UP)
@@ -71,6 +88,8 @@ func _process(delta):
 		if player.global_transform.origin.distance_squared_to(global_transform.origin) < found_radius:
 			state = KidState.FOLLOWING
 			target = player_tracker
+			world.set_normal(first_name)
+			
 	else:
 		path_calc_remaining -= delta
 		if path_calc_remaining < 0:
@@ -81,6 +100,7 @@ func _process(delta):
 			attentive_timer -= delta
 			if attentive_timer < 0:
 				state = KidState.FOLLOWING
+				world.set_normal(first_name)
 			
 
 func add_collision(impact):
@@ -96,8 +116,7 @@ func _physics_process(delta):
 				apply_central_impulse(impact)
 			
 		collisions = []
-		flying = true
-		state = KidState.LOST
+		hit = true
 		
 
 func _set_velocity(state, target):
@@ -114,6 +133,9 @@ func _integrate_forces(state):
 		return
 		
 	if self.state == KidState.LOST:
+		return
+		
+	if stuck:
 		return
 		
 	if path_force_update:
@@ -152,7 +174,7 @@ func _on_Kid_body_entered(body):
 		
 
 func _on_Distraction_entered(body):
-	if set_time > 0:
+	if set_time > 0 or stuck:
 		return
 		
 	if state == KidState.FOLLOWING:
@@ -160,10 +182,11 @@ func _on_Distraction_entered(body):
 		target = body
 		_calculate_path()
 		_select_random_audio($DistractionAudio)
+		world.set_distracted(first_name)
 	
 
 func _on_Lollipop_area_entered(area):
-	if set_time > 0:
+	if set_time > 0 or stuck:
 		return
 		
 	if area.is_in_group("Lollipop") and state == KidState.DISTRACTED:
@@ -171,7 +194,10 @@ func _on_Lollipop_area_entered(area):
 		attentive_timer = attentive_time
 		target = player_tracker
 		_select_random_audio($DistractionAudio)
+		world.set_normal(first_name)
 	
 
 func _on_Hole_entered(hole):
 	_select_random_audio($HoleAudio)
+	world.set_hole(first_name)
+	stuck = true
