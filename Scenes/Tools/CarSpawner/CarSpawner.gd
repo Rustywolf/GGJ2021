@@ -9,6 +9,7 @@ onready var Car := preload("res://Scenes/Characters/Car/Car.tscn")
 
 var time := 0.0
 
+
 func _ready():
 	time = delay
 	
@@ -20,4 +21,5 @@ func _process(delta):
 		
 		var car = Car.instance()
 		car.speed = speed
-		add_child(car)
+		car.global_transform = global_transform
+		$"../../Cars".add_child(car)

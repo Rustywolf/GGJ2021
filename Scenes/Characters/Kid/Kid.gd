@@ -33,6 +33,8 @@ var path_calc_remaining := 0.0
 var path_force_update := false
 var reset_velocity := false
 
+var set_time := 0.5
+
 
 func _ready():
 	player_tracker = player.get_node("Tracking/" + first_name)
@@ -59,6 +61,8 @@ func _check_for_distractions():
 			
 
 func _process(delta):
+	set_time -= delta
+	
 	$Body.look_at(target.global_transform.origin, Vector3.UP)
 	$Body.rotation.x = 0
 	$Body.rotation.z = 0
@@ -148,18 +152,25 @@ func _on_Kid_body_entered(body):
 		
 
 func _on_Distraction_entered(body):
+	if set_time > 0:
+		return
+		
 	if state == KidState.FOLLOWING:
 		state = KidState.DISTRACTED
 		target = body
 		_calculate_path()
+		_select_random_audio($DistractionAudio)
 	
 
 func _on_Lollipop_area_entered(area):
-	if area.is_in_group("Lollipop"):
+	if set_time > 0:
+		return
+		
+	if area.is_in_group("Lollipop") and state == KidState.DISTRACTED:
 		state = KidState.ATTENTIVE
 		attentive_timer = attentive_time
 		target = player_tracker
-		_select_random_audio($LollipopAudio)
+		_select_random_audio($DistractionAudio)
 	
 
 func _on_Hole_entered(hole):

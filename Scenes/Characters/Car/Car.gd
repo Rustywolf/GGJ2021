@@ -2,9 +2,15 @@ extends Spatial
 
 var speed := 10.0
 const IMPACT := 10.0
+var traveled := 0.0
 
 func _physics_process(delta):
-	translation += transform.basis.z * delta * speed
+	var move = global_transform.basis.z * delta * speed
+	global_transform.origin += move
+	traveled += move.length()
+	if traveled > 120.0:
+		get_parent().remove_child(self)
+		queue_free()
 	
 
 func _on_Car_body_entered(body):

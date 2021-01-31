@@ -96,6 +96,7 @@ func _unhandled_input(event):
 		if lollipop_time <= 0:
 			$AnimationPlayer.play("Lollipop")
 			lollipop_time = lollipop_cooldown
+			$LollipopAudio.get_child(randi() % $LollipopAudio.get_child_count()).playing = true
 		
 
 func _on_Ground_entered(body):

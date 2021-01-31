@@ -1,18 +1,15 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Characters/Kid/Kid.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop1.wav" type="AudioStream" id=2]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop4.wav" type="AudioStream" id=3]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop5.wav" type="AudioStream" id=4]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop6.wav" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop3.wav" type="AudioStream" id=6]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop7.wav" type="AudioStream" id=7]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop8.wav" type="AudioStream" id=8]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop9.wav" type="AudioStream" id=9]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop10.wav" type="AudioStream" id=10]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop2.wav" type="AudioStream" id=11]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop11.wav" type="AudioStream" id=12]
-[ext_resource path="res://Assets/Sound/Lollipop/Lollipop12.wav" type="AudioStream" id=13]
+[ext_resource path="res://Assets/Sound/Distraction/Distraction9.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Sound/Distraction/Distraction8.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sound/Distraction/Distraction7.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sound/Distraction/Distraction1.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/Distraction/Distraction2.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sound/Distraction/Distraction3.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sound/Distraction/Distraction4.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sound/Distraction/Distraction6.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sound/Distraction/Distraction5.wav" type="AudioStream" id=10]
 [ext_resource path="res://Assets/Sound/Impact/FallInHole/FallInHole1.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Sound/Impact/FallInHole/FallInHole2.wav" type="AudioStream" id=15]
 [ext_resource path="res://Assets/Sound/Impact/FallInHole/FallInHole3.wav" type="AudioStream" id=16]
@@ -63,56 +60,6 @@ shape = SubResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="Lollipop"]
 shape = SubResource( 4 )
 
-[node name="LollipopAudio" type="Spatial" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 2 )
-unit_db = 40.0
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 11 )
-unit_db = 23.093
-
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 6 )
-unit_db = 23.093
-
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 3 )
-unit_db = 23.093
-
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 4 )
-unit_db = 23.093
-
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 5 )
-unit_db = 23.093
-
-[node name="AudioStreamPlayer7" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 7 )
-unit_db = 23.093
-
-[node name="AudioStreamPlayer8" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 8 )
-unit_db = 23.093
-
-[node name="AudioStreamPlayer9" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 9 )
-unit_db = 23.093
-
-[node name="AudioStreamPlayer10" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 10 )
-unit_db = 23.093
-
-[node name="AudioStreamPlayer11" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 12 )
-unit_db = 23.093
-
-[node name="AudioStreamPlayer12" type="AudioStreamPlayer3D" parent="LollipopAudio"]
-stream = ExtResource( 13 )
-unit_db = 23.093
-
 [node name="HoleAudio" type="Spatial" parent="."]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="HoleAudio"]
@@ -144,6 +91,44 @@ stream = ExtResource( 20 )
 
 [node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="HitImpact"]
 stream = ExtResource( 21 )
+
+[node name="DistractionAudio" type="Spatial" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DistractionAudio"]
+stream = ExtResource( 5 )
+unit_db = 20.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="DistractionAudio"]
+stream = ExtResource( 6 )
+unit_db = 20.0
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="DistractionAudio"]
+stream = ExtResource( 7 )
+unit_db = 20.0
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="DistractionAudio"]
+stream = ExtResource( 8 )
+unit_db = 20.0
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="DistractionAudio"]
+stream = ExtResource( 10 )
+unit_db = 20.0
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="DistractionAudio"]
+stream = ExtResource( 9 )
+unit_db = 20.0
+
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="DistractionAudio"]
+stream = ExtResource( 4 )
+unit_db = 20.0
+
+[node name="AudioStreamPlayer3D8" type="AudioStreamPlayer3D" parent="DistractionAudio"]
+stream = ExtResource( 3 )
+unit_db = 20.0
+
+[node name="AudioStreamPlayer3D9" type="AudioStreamPlayer3D" parent="DistractionAudio"]
+stream = ExtResource( 2 )
+unit_db = 20.0
 
 [node name="FallImpact" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 22 )
